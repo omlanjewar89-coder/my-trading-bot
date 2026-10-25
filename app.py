@@ -1,15 +1,13 @@
 import streamlit as st
-  import yfinance as yf
-  import pandas as pd
-  import numpy as np
-  import random
-
-  # Page Configuration
-  st.set_page_config(page_title="AI Trading Terminal", layout="wide",
-  page_icon="📈")
-
-  # Custom Styling
-  st.markdown("""
+import yfinance as yf
+import pandas as pd
+import numpy as np
+import random
+# Page Configuration
+st.set_page_config(page_title="AI Trading Terminal", layout="wide",
+page_icon="📈")
+# Custom Styling
+st.markdown("""
       <style>
       .main { background-color: #0e1117; color: white; }
       .stButton>button { width: 100%; border-radius: 10px; height: 3em;
@@ -18,19 +16,15 @@ import streamlit as st
   15px; border: 1px solid #363a45; }
       </style>
       """, unsafe_allow_html=True)
-
   st.title("📈 AI Day-Trading Terminal")
   st.subheader("Free Research & Simulation Suite")
-
   # Sidebar Navigation
   menu = st.sidebar.selectbox("Choose a Tool", ["Chart Scanner", "Time
   Machine", "Risk Manager"])
-
   if menu == "Chart Scanner":
       st.header("🔍 Chart Scanner")
       ticker = st.text_input("Enter Ticker (e.g., TSLA, NVDA, AMD)",
   "TSLA").upper()
-
       if st.button("Scan for Setups"):
           with st.spinner(f"Analyzing {ticker}..."):
               # Fetch Data
